@@ -96,14 +96,17 @@ struct ContentView: View {
                         }
                     }
                     
-                    Section {
+                    VStack {
                         // 9. Navigation Bar Button - “RESET”: When tapped, this button resets the form to its default values.
                         Button {
                             resetForm()
                         } label: {
                             Text("Reset")
-                                .font(.callout)
-                                .foregroundColor(.red)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.red)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
                         }
                         
                         // 10. Button - “PLACE ORDER”:
@@ -113,7 +116,11 @@ struct ContentView: View {
                             self.presentReceiptView = true
                         } label: {
                             Text("Place Order")
-                                .font(.callout)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
                         }
                         .disabled(customerPhoneNumber.isEmpty)
                     }
