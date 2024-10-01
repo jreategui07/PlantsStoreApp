@@ -11,6 +11,10 @@
 		2BCFB6A62CAC648F00552DEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6A52CAC648F00552DEF /* ContentView.swift */; };
 		2BCFB6A82CAC649100552DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BCFB6A72CAC649100552DEF /* Assets.xcassets */; };
 		2BCFB6AB2CAC649100552DEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BCFB6AA2CAC649100552DEF /* Preview Assets.xcassets */; };
+		2BCFB6B32CAC67B300552DEF /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6B22CAC67B300552DEF /* Plant.swift */; };
+		2BCFB6B52CAC67FE00552DEF /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6B42CAC67FE00552DEF /* Receipt.swift */; };
+		2BCFB6B72CAC7D3300552DEF /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6B62CAC7D3300552DEF /* Customer.swift */; };
+		2BCFB6BA2CAC7E8100552DEF /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6B92CAC7E8100552DEF /* enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		2BCFB6A52CAC648F00552DEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2BCFB6A72CAC649100552DEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BCFB6AA2CAC649100552DEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2BCFB6B22CAC67B300552DEF /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		2BCFB6B42CAC67FE00552DEF /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		2BCFB6B62CAC7D3300552DEF /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		2BCFB6B92CAC7E8100552DEF /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,8 @@
 		2BCFB6A22CAC648F00552DEF /* Jonathan_Plants */ = {
 			isa = PBXGroup;
 			children = (
+				2BCFB6B82CAC7E5F00552DEF /* Common */,
+				2BCFB6B12CAC679B00552DEF /* Models */,
 				2BCFB6A32CAC648F00552DEF /* Jonathan_PlantsApp.swift */,
 				2BCFB6A52CAC648F00552DEF /* ContentView.swift */,
 				2BCFB6A72CAC649100552DEF /* Assets.xcassets */,
@@ -65,6 +75,24 @@
 				2BCFB6AA2CAC649100552DEF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2BCFB6B12CAC679B00552DEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2BCFB6B22CAC67B300552DEF /* Plant.swift */,
+				2BCFB6B42CAC67FE00552DEF /* Receipt.swift */,
+				2BCFB6B62CAC7D3300552DEF /* Customer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2BCFB6B82CAC7E5F00552DEF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2BCFB6B92CAC7E8100552DEF /* enums.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BCFB6A62CAC648F00552DEF /* ContentView.swift in Sources */,
+				2BCFB6B72CAC7D3300552DEF /* Customer.swift in Sources */,
+				2BCFB6B52CAC67FE00552DEF /* Receipt.swift in Sources */,
+				2BCFB6B32CAC67B300552DEF /* Plant.swift in Sources */,
+				2BCFB6BA2CAC7E8100552DEF /* enums.swift in Sources */,
 				2BCFB6A42CAC648F00552DEF /* Jonathan_PlantsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
