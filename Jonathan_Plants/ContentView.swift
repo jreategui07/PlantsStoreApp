@@ -94,11 +94,6 @@ struct ContentView: View {
                             Text("Invalid discount code.")
                                 .foregroundColor(.red)
                         }
-                        
-                        // 8. Navigation Bar Button - “GARDENER’S PICK”: When tapped, this button automatically populates the form with these values:
-                        // Plant Type: Outdoor
-                        // Plant Size: Large
-                        // Quantity: 3
                     }
                     
                     Section {
@@ -139,6 +134,20 @@ struct ContentView: View {
                 )
                 ReceiptView(receipt: receipt)
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    // 8. Navigation Bar Button - “GARDENER’S PICK”: When tapped, this button automatically populates the form with these values:
+                    // Plant Type: Outdoor
+                    // Plant Size: Large
+                    // Quantity: 3
+                    Button {
+                        self.gardenersPickPressend()
+                    } label: {
+                        Text("GARDENER’S PICK")
+                            .font(.caption)
+                    }
+                }
+            }
         }
     }
     
@@ -159,6 +168,12 @@ struct ContentView: View {
         customerPhoneNumber = ""
         discountCode = ""
         showErrorMessage = false
+    }
+    
+    private func gardenersPickPressend() {
+        plantType = PlantType.Outdoor
+        plantSize = PlantSize.Large
+        quantity = 3
     }
     
     func isValidDiscountCode(_ code: String) -> Bool {
