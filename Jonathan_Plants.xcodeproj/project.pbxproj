@@ -15,6 +15,7 @@
 		2BCFB6B52CAC67FE00552DEF /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6B42CAC67FE00552DEF /* Receipt.swift */; };
 		2BCFB6B72CAC7D3300552DEF /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6B62CAC7D3300552DEF /* Customer.swift */; };
 		2BCFB6BA2CAC7E8100552DEF /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6B92CAC7E8100552DEF /* enums.swift */; };
+		2BCFB6BF2CACA32900552DEF /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFB6BE2CACA32900552DEF /* ReceiptView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		2BCFB6B42CAC67FE00552DEF /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		2BCFB6B62CAC7D3300552DEF /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		2BCFB6B92CAC7E8100552DEF /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
+		2BCFB6BE2CACA32900552DEF /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		2BCFB6A22CAC648F00552DEF /* Jonathan_Plants */ = {
 			isa = PBXGroup;
 			children = (
+				2BCFB6BB2CACA2ED00552DEF /* Views */,
 				2BCFB6B82CAC7E5F00552DEF /* Common */,
 				2BCFB6B12CAC679B00552DEF /* Models */,
 				2BCFB6A32CAC648F00552DEF /* Jonathan_PlantsApp.swift */,
@@ -93,6 +96,14 @@
 				2BCFB6B92CAC7E8100552DEF /* enums.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		2BCFB6BB2CACA2ED00552DEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BCFB6BE2CACA32900552DEF /* ReceiptView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				2BCFB6B72CAC7D3300552DEF /* Customer.swift in Sources */,
 				2BCFB6B52CAC67FE00552DEF /* Receipt.swift in Sources */,
 				2BCFB6B32CAC67B300552DEF /* Plant.swift in Sources */,
+				2BCFB6BF2CACA32900552DEF /* ReceiptView.swift in Sources */,
 				2BCFB6BA2CAC7E8100552DEF /* enums.swift in Sources */,
 				2BCFB6A42CAC648F00552DEF /* Jonathan_PlantsApp.swift in Sources */,
 			);

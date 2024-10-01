@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Boolean var to control the presentation of the Receipt view
+    @State private var presentReceiptView: Bool = false
+    
     // Plant values
     @State private var plantType: PlantType = PlantType.Indoor
     @State private var plantSize: PlantSize = PlantSize.Medium
@@ -23,7 +26,7 @@ struct ContentView: View {
 
     // Boolean var to control error
     @State private var showErrorMessage: Bool = false
-
+    
     var body: some View {
         
         NavigationStack {
@@ -112,7 +115,7 @@ struct ContentView: View {
                         // When the user taps this button, app should navigate to the second screen with all the order details. You may send the data as separate fields or as class object.
                         // Before navigating to Screen 2, validate mandatory fields and check the validity of any entered discount codes.
                         Button {
-                            placeOrder()
+                            self.presentReceiptView = true
                         } label: {
                             Text("Place Order")
                                 .font(.callout)
@@ -126,8 +129,27 @@ struct ContentView: View {
             .padding(5)
             .navigationTitle("Plant Order App")
             .navigationBarTitleDisplayMode(.large)
+            .navigationDestination(isPresented: $presentReceiptView) {
+                let customer = Customer(fullName: customerFullName, phoneNumber: customerPhoneNumber)
+                let plant = Plant(type: plantType, size: plantSize)
+                let receipt = Receipt(
+                    plant: plant,
+                    customer: customer,
+                    quantity: quantity
+                )
+                ReceiptView(receipt: receipt)
+            }
         }
-        
+    }
+    
+    private func placeOrder() {
+        if isValidDiscountCode(discountCode) {
+            appliedDiscount = discountCode
+            showErrorMessage = false
+            self.presentReceiptView = true
+        } else {
+            showErrorMessage = true
+        }
     }
 
     private func resetForm() {
@@ -139,28 +161,6 @@ struct ContentView: View {
         showErrorMessage = false
     }
     
-    private func placeOrder() {
-        if isValidDiscountCode(discountCode) {
-            appliedDiscount = discountCode
-            showErrorMessage = false
-            // Navigate to the next screen or show success
-            
-            
-            let customer = Customer(fullName: customerFullName, phoneNumber: customerPhoneNumber)
-            let plant = Plant(type: plantType, size: plantSize)
-            let receipt = Receipt(
-                plant: plant,
-                customer: customer,
-                quantity: quantity
-            )
-            print("Receipt was created successfully")
-            print(receipt)
-            // Go to second screen
-        } else {
-            showErrorMessage = true
-        }
-    }
-
     func isValidDiscountCode(_ code: String) -> Bool {
         return code.hasPrefix("PLANT")
     }
