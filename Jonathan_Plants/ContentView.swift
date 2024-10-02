@@ -103,8 +103,11 @@ struct ContentView: View {
                             placeOrder()
                         } label: {
                             Text("Place Order")
-                                .font(.callout)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .cornerRadius(10)
                         }
+                        .disabled(customerFullName.isEmpty)
                         .disabled(customerPhoneNumber.isEmpty)
                     }
                 }
