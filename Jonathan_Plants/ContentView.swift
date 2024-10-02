@@ -69,7 +69,7 @@ struct ContentView: View {
                     
                     Section(header: Text("Customer Information")) {
                         // Ask for customer's name on screen 1
-                        TextField("Customer Fullname", text: $customerFullName)
+                        TextField("Customer Full Name", text: $customerFullName)
                             .keyboardType(.default)
                             .padding()
                         
