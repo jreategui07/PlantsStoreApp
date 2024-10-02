@@ -96,15 +96,6 @@ struct ContentView: View {
                     }
                     
                     Section {
-                        // 9. Navigation Bar Button - “RESET”: When tapped, this button resets the form to its default values.
-                        Button {
-                            resetForm()
-                        } label: {
-                            Text("Reset")
-                                .font(.callout)
-                                .foregroundColor(.red)
-                        }
-                        
                         // 10. Button - “PLACE ORDER”:
                         // When the user taps this button, app should navigate to the second screen with all the order details. You may send the data as separate fields or as class object.
                         // Before navigating to Screen 2, validate mandatory fields and check the validity of any entered discount codes.
@@ -145,6 +136,16 @@ struct ContentView: View {
                     } label: {
                         Text("GARDENER’S PICK")
                             .font(.caption)
+                    }
+                }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    // 9. Navigation Bar Button - “RESET”: When tapped, this button resets the form to its default values.
+                    Button {
+                        resetForm()
+                    } label: {
+                        Text("Reset")
+                            .font(.caption)
+                            .foregroundColor(.red)
                     }
                 }
             }
