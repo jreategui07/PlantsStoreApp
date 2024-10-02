@@ -9,34 +9,37 @@ class Receipt {
     let plant: Plant
     let customer: Customer
     let quantity: Int
-    var discountApplied: Double?
+    let applyDiscount: Bool
     
-    init(plant: Plant, customer: Customer, quantity: Int, discountApplied: Double? = nil) {
+    init(plant: Plant, customer: Customer, quantity: Int, applyDiscount: Bool = false) {
         self.plant = plant
         self.customer = customer
         self.quantity = quantity
-        self.discountApplied = discountApplied
+        self.applyDiscount = applyDiscount
+    }
+    
+    private func basePrice() -> Double {
+        switch plant.size {
+        case .Small:
+            return 5.0
+        case .Medium:
+            return 7.5
+        case .Large:
+            return 10.0
+        }
+    }
+    
+    private func calculateDiscountedPrice() -> Double {
+        return 10.0
     }
     
     func calculateTotalBeforeTax() -> Double {
-        let basePrice: Double
-
-        switch plant.size {
-        case .Small:
-            basePrice = 5.0
-        case .Medium:
-            basePrice = 7.5
-        case .Large:
-            basePrice = 10.0
+        if applyDiscount {
+            // If a valid coupon is applied, then the pre-tax price of any Plants (regardless of size), is $10.00
+            return calculateDiscountedPrice() * Double(quantity)
+        } else {
+            return basePrice() * Double(quantity)
         }
-
-        var total = basePrice * Double(quantity)
-
-        if let discount = discountApplied { // Applying discount if apply
-            total -= (total * (discount / 100))
-        }
-
-        return total
     }
     
     func calculateTaxAmount() -> Double {

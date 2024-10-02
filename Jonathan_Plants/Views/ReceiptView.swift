@@ -24,8 +24,8 @@ struct ReceiptView: View {
                  Text("Plant Size: \(receipt.plant.size.rawValue)")
                  Text("Quantity Ordered: \(receipt.quantity)")
                 
-                if let discount = receipt.discountApplied {
-                    Text("Discount Applied: \(discount)%")
+                if receipt.applyDiscount {
+                    Text("Discount Applied: Yes")
                 } else {
                     Text("Discount Applied: None")
                 }
@@ -63,7 +63,19 @@ struct ReceiptView: View {
     plant: testPlant,
     customer: testCustomer,
     quantity: 3,
-    discountApplied: 10.0
+    applyDiscount: true
+   )
+    return ReceiptView(receipt: testReceipt)
+}
+
+#Preview {
+   let testCustomer = Customer(fullName: "John Doe", phoneNumber: "123456789")
+   let testPlant = Plant(type: .Indoor, size: .Medium)
+   let testReceipt = Receipt(
+    plant: testPlant,
+    customer: testCustomer,
+    quantity: 3,
+    applyDiscount: false
    )
     return ReceiptView(receipt: testReceipt)
 }

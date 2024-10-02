@@ -21,7 +21,6 @@ struct ContentView: View {
     
     // Receipt values
     @State private var discountCode: String = ""
-    @State private var appliedDiscount: String = ""
     @State private var quantity: Int = 1
 
     // Boolean var to control error
@@ -85,7 +84,6 @@ struct ContentView: View {
                         // The code is verified when the user presses the “Place Order” button.
                         // Valid codes start with the word PLANT (e.g., PLANT50).
                         // If an invalid code is entered, display an error message and clear the field without processing the order.
-                        // If a valid coupon is applied, then the pre-tax price of any Plants (regardless of size), is $10.00
                         TextField("Discount Code", text: $discountCode)
                             .keyboardType(.default)
                             .padding()
@@ -131,7 +129,8 @@ struct ContentView: View {
                 let receipt = Receipt(
                     plant: plant,
                     customer: customer,
-                    quantity: quantity
+                    quantity: quantity,
+                    applyDiscount: !discountCode.isEmpty
                 )
                 ReceiptView(receipt: receipt)
             }
@@ -159,7 +158,6 @@ struct ContentView: View {
             return
         }
         if isValidDiscountCode(discountCode) {
-            appliedDiscount = discountCode
             showErrorMessage = false
             self.presentReceiptView = true
         } else {
