@@ -19,13 +19,19 @@ class Receipt {
     }
     
     private func basePrice() -> Double {
-        switch plant.size {
-        case .Small:
-            return 5.0
-        case .Medium:
-            return 7.5
-        case .Large:
-            return 10.0
+        switch (plant.size, plant.type) {
+        case (.Small, .Indoor):
+            return 15.99
+        case (.Small, .Outdoor):
+            return 18.99
+        case (.Medium, .Indoor):
+            return 24.99
+        case (.Medium, .Outdoor):
+            return 29.99
+        case (.Large, .Indoor):
+            return 34.99
+        case (.Large, .Outdoor):
+            return 39.99
         }
     }
     
