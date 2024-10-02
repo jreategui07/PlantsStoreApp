@@ -87,6 +87,7 @@ struct ContentView: View {
                         // If an invalid code is entered, display an error message and clear the field without processing the order.
                         // If a valid coupon is applied, then the pre-tax price of any Plants (regardless of size), is $10.00
                         TextField("Discount Code", text: $discountCode)
+                            .keyboardType(.default)
                             .padding()
                         
                         // Show error message if discount is invalid
@@ -96,31 +97,24 @@ struct ContentView: View {
                         }
                     }
                     
-                    VStack {
+                    Section {
                         // 9. Navigation Bar Button - “RESET”: When tapped, this button resets the form to its default values.
                         Button {
                             resetForm()
                         } label: {
                             Text("Reset")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.red)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
+                                .font(.callout)
+                                .foregroundColor(.red)
                         }
                         
                         // 10. Button - “PLACE ORDER”:
                         // When the user taps this button, app should navigate to the second screen with all the order details. You may send the data as separate fields or as class object.
                         // Before navigating to Screen 2, validate mandatory fields and check the validity of any entered discount codes.
                         Button {
-                            self.presentReceiptView = true
+                            placeOrder()
                         } label: {
                             Text("Place Order")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
+                                .font(.callout)
                         }
                         .disabled(customerPhoneNumber.isEmpty)
                     }
@@ -159,6 +153,11 @@ struct ContentView: View {
     }
     
     private func placeOrder() {
+        if (discountCode.isEmpty) {
+            showErrorMessage = false
+            self.presentReceiptView = true
+            return
+        }
         if isValidDiscountCode(discountCode) {
             appliedDiscount = discountCode
             showErrorMessage = false
